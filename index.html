@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jsx is not supported in browsers - this library transpile jsx into something that is supported by browsers -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- React CDN that has both react and react DOM library -->
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <title>Document</title>
 </head> 
 <body>
+    <!-- the single html page where the react is rendered -->
     <div id="app"></div> 
+    <!-- The react component -->
     <script type="text/babel">
-   
+    // class based component
         class App extends React.Component {
+    // class based component has a state component
             state =  {
                 name : 'Viktor',
                 age  : 21
             }
+    // the best way to change the state
+    // to reference a state in components, this is the best function structure
             handleClick=(e)=>{
                 this.setState({
                     name :'kassandra'
@@ -24,8 +31,13 @@
                
                 console.log(this.state)
             }
+    // class based component has atleast one function which is the render function
             render(){
                 return(
+    // jsx can take only one root element to solve the issue one root element is used to house all other elements
+    // {} used to output dynamic data
+    // 'this' used to refer to component
+    // the function is a dynamic JS and unlike other JS it does not end with '()'. 'this' is used to refer to the component
                     <div className = "app-content">
                     <h1> Hey, ninjas </h1>
                     <p>My name is { this.state.name } and i am { this.state.age } </p>
@@ -34,8 +46,9 @@
                 )
             }
         }
+    // renders the react component to the DOM
+    // contains two parameters : the first is the component the second is where you want to render it
         ReactDOM.render(<App />,document.getElementById('app'))
-
     </script>
 </body>
 </html>
