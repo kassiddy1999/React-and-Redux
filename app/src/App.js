@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// to import the Ninjas
 import Ninjas from './Ninjas'
 import AddNInja from './AddNInja'
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
         
       })
   }
+  // ln24: props
 render(){
   return (
     <div className="App">
