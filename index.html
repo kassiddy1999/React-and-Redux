@@ -22,6 +22,19 @@
                 name : 'Viktor',
                 age  : 21
             }
+
+    // to handle the form function
+    // changing a state
+            handleChange = (e) => {
+                this.setState({
+                    name : e.target.value
+                })
+            }
+
+            handleSubmit = (e) => {
+                e.preventDefault()
+                console.log('form submitted', this.state.name)
+            }
     // the best way to change the state
     // to reference a state in components, this is the best function structure
             handleClick=(e)=>{
@@ -41,7 +54,11 @@
                     <div className = "app-content">
                     <h1> Hey, ninjas </h1>
                     <p>My name is { this.state.name } and i am { this.state.age } </p>
-                    <button onClick = { this.handleClick }>Click Me </button>
+                    <button onClick = { this.handleClick }> Click Me </button>
+                    <form onSubmit = { this.handleSubmit }>
+                       <input type = 'text' onChange = { this.handleChange }/>
+                       <button>Submit</button>
+                    </form>
                     </div>
                 )
             }
