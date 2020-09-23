@@ -7,7 +7,7 @@ export default class AddNInja extends Component {
         age : null
     }
     // get the input
-    handleChange = (e)=>{
+    handleChange = (e) =>{
         this.setState({
             [e.target.id]: e.target.value
         })
@@ -18,6 +18,7 @@ export default class AddNInja extends Component {
         e.preventDefault();
         this.props.addNinja(this.state);
     }
+
     render() {
         return (
             <div>

@@ -1,7 +1,7 @@
 import React from 'react'
-const Ninjas = (props) => {
+const Ninjas = ({ ninjas, deleteNinja }) => {
     // functional component don't use 'this'
-        const { ninjas } = props
+        // const { ninjas } = props
     // alternative for outputting list
         // const ninjaList = ninjas.map(ninja =>{
         //     if (ninja.age> 24) {
@@ -24,6 +24,7 @@ const Ninjas = (props) => {
                 <div> Name : { ninja.name }</div>
                 <div> Age :{ ninja.age }</div>
                 <div> Belt : { ninja.belt }</div>
+                <button onClick = { () => { deleteNinja(ninja.id) } }>Delete ninja</button>
                 </div>
             ): null;
         })

@@ -5,23 +5,33 @@ import AddNInja from './AddNInja'
 class App extends Component {
   state = {
   ninjas : [
-    { name : 'viktor', age : 23, belt : 'black'},
-    { name : 'sandra', age : 45, belt : 'Pink'},
-    { name : 'silas', age : 53, belt : 'white'},
+    { name : 'viktor', age : 23, belt : 'black', id : 1},
+    { name : 'sandra', age : 45, belt : 'Pink', id : 2},
+    { name : 'silas', age : 53, belt : 'white', id : 3},
    ]
   }
+  // to add new ninja
   addNinja = (ninja) => {
       ninja.id = Math.random()
+      let ninjas = [...this.state.ninjas, ninja]
       this.setState({
-        
+        ninjas : ninjas
       })
   }
-  // ln24: props
+  // to delete ninja
+  deleteNinja = (id) =>{
+    let ninjas = this.state.ninjas.filter(ninja => {
+      return ninja.id !== id
+    })
+    this.setState({
+      ninjas : ninjas
+    })
+  }
 render(){
   return (
     <div className="App">
     <h1> Hello World</h1>
-  <Ninjas ninjas = { this.state.ninjas } />
+  <Ninjas deleteNinja = { this.deleteNinja } ninjas = { this.state.ninjas } />
   <AddNInja addNinja = { this.addNinja } />
     </div>
   );
