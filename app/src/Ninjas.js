@@ -1,4 +1,5 @@
 import React from 'react'
+import './Ninjas.css'
 const Ninjas = ({ ninjas, deleteNinja }) => {
     // functional component don't use 'this'
         // const { ninjas } = props
